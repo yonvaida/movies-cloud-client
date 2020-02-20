@@ -1,0 +1,13 @@
+{
+    "oneDrive": {
+        "tokenParams":{
+            "grant_type":"password",
+            "client_id":"",
+            "client_secret":"",
+            "scope":"https://graph.microsoft.com/.default",
+            "userName":"",
+            "password":""
+        },
+        "drive_id":""
+    }
+}
