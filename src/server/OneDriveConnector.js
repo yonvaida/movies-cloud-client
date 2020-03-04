@@ -30,26 +30,26 @@ class OneDriveConnector {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.token}`
+        Authorization: `Bearer ${this.token}`
       }
     };
   }
 
   getToken() {
     this.readTokenSettings();
-    return new Promise((resolve,reject) => {
-        request(this.tokenRequestCallOptions, (error, response, body) => {
-      if (error) {
-        console.log(error);
-        reject(error);
-      } else {
-        this.token = JSON.parse(body).access_token;
-        const expires = JSON.parse(body).expires_in;
-        this.tokenExpire = Date.now() + expires * 1000;
-        resolve('Success');
-      }
-    })
-   })
+    return new Promise((resolve, reject) => {
+      request(this.tokenRequestCallOptions, (error, response, body) => {
+        if (error) {
+          console.log(error);
+          reject(error);
+        } else {
+          this.token = JSON.parse(body).access_token;
+          const expires = JSON.parse(body).expires_in;
+          this.tokenExpire = Date.now() + expires * 1000;
+          resolve('Success');
+        }
+      });
+    });
   }
 
   getMoviesList() {
@@ -68,7 +68,7 @@ class OneDriveConnector {
           });
         resolve(allMovies);
         }
-      })
+      });
     });
   }
 }

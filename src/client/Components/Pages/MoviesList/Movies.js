@@ -4,8 +4,8 @@ import MovieItem from './MovieItem';
 class Movies extends Component {
   constructor(props) {
     super(props);
-    this.state ={renderingItem : "Loading movies list"};
-    this.videoPage =this.props.videoPage;
+    this.state = { renderingItem: 'Loading movies list'};
+    this.videoPage = this.props.videoPage;
   }
 
   componentWillMount() {
@@ -25,9 +25,10 @@ class Movies extends Component {
                 key={i}
                 name={movie.title}
                 year={allMovies[i].year}
-                url={allMovies[i].webUrl}
-                openVideo={this.videoPage} />);
-              ++i;
+                url={allMovies[i]}
+                openVideo={this.videoPage}
+              />);
+              i += 1;
             });
             this.setState({ renderingItem: table });
           });

@@ -7,7 +7,7 @@ body {
     margin:0px;
     padding:0px;
     height:100vh;
-    width:100vw;
+    width:100%;
   }
 
   #menu{
@@ -45,4 +45,40 @@ body {
 
   #mainPage {
     border-top:10px;
+    margin-left:205px;
+    height: 100%;
+    background-color:
+  }
+
+  .movieTitle {
+    font-family: 'Trade Winds';
+    float: left;
+    font-size:30pt;
+    margin: 10px;
+    font-weight: bold;
+    width: 98%;
+    text-align: left;
+  }
+
+  .player {
+    width:65%;
+    margin:auto;
+  }
+
+  .movieDescription {
+    font-family: 'Josefin Slab';
+    width:100%;
+    float:left;
+    margin-bottom: 25px;
+  }
+  .backgroundMask {
+    width: 100%;
+    height: 100%;
+    background-image:url('texture.png');
+  }
+  .backgroundMask::after {
+    width: 100%;
+    height: 100%;
+    background-color:black;
+    opacity:0.5;
   }

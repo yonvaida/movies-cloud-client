@@ -12,18 +12,23 @@ class App extends Component {
     this.state = { loading:true};
     this.connector = new ApiConnector;
     this.videoPage = this.videoPage.bind(this);
-}
+  }
 
-componentWillMount() {
-  this.setState({page : <Movies videoPage = {this.videoPage}/>});
-}
+  componentWillMount() {
+    this.setState({ page: <Movies videoPage={this.videoPage} /> });
+  }
 
-videoPage(url) {
-  this.setState({page:<Video url = {url}/>})
-}
+  videoPage(url, info) {
+    this.setState({ page: <Video url={url} info={info} /> });
+  }
+
   render() {
+    const backgroundStyle = {
+      width: "100%",
+      height: "100%"
+    };
     return (
-      <div>
+      <div style={backgroundStyle}>
         {this.state.page}
       </div>
     );
