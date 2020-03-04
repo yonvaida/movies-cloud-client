@@ -29,7 +29,13 @@ class MovieItem extends Component {
     const openVideo = this.props.openVideo;
 
     if (this.state.Loading) {
-      return ("Loading"); 
+      return (
+        <div
+          className="movie"
+        >
+          LOADING...
+        </div>
+      );
     }
     return (
       <div
