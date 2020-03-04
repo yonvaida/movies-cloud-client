@@ -3,7 +3,7 @@ If you have movies on cloud you can watch them
 ## Installation
 Clone this repo
 > git clone https://github.com/yonvaida/movies-cloud.git
-> npm install
+npm install
 
 Create settings.json in /src/server
 ```json
