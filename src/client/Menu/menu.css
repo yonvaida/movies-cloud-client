@@ -1,0 +1,78 @@
+#menu {
+ font-family: 'Trade Winds';
+ float: left;
+ width: 200px;
+ height: 100%;
+ border-radius:3px;
+}
+
+.menuItem {
+  height: 60px;
+	margin: 10px;
+  position: relative;
+  top: 50px;
+  transform: translateY(-50%);
+  width: 180px;
+}
+
+.shape {
+  fill: transparent;
+  stroke-dasharray: 140 540;
+  stroke-dashoffset: -256;
+  stroke-width: 2px;
+  stroke: #6e6e6e;
+  -webkit-animation: 0.3s drawOut linear forwards;
+  animation: 0.3s drawOut linear forwards;
+}
+
+.text {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  font-family: 'Roboto Condensed';
+	text-shadow: 0px 1px 1px #000;
+	color: #6e6e6e;
+  font-size: 22px;
+  letter-spacing: 8px;
+  line-height: 32px;
+  position: relative;
+  top: -48px;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -256;
+    stroke-width: 2px;
+  }
+  100% {
+    stroke-dasharray: 170 740;
+    stroke-dashoffset: -240;
+    stroke-width: 2px;
+  }
+}
+
+@keyframes drawOut {
+  0% {
+    stroke-dasharray: 170 740;
+    stroke-dashoffset: -240;
+    stroke-width: 2px;
+  }
+  100% {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -256;
+    stroke-width: 2px;
+  }
+}
+
+.menuItem:hover .shape {
+  -webkit-animation: 0.3s draw linear forwards;
+  animation: 0.3s draw linear forwards;
+}
+
+h1 {
+	text-shadow: 0px 1px 1px #000;
+	color: #6e6e6e;
+}
