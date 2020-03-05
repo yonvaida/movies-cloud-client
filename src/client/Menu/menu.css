@@ -45,12 +45,12 @@
   0% {
     stroke-dasharray: 140 540;
     stroke-dashoffset: -256;
-    stroke-width: 2px;
+    stroke-width: 5px;
   }
   100% {
     stroke-dasharray: 170 740;
     stroke-dashoffset: -240;
-    stroke-width: 2px;
+    stroke-width: 5px;
   }
 }
 
@@ -58,12 +58,12 @@
   0% {
     stroke-dasharray: 170 740;
     stroke-dashoffset: -240;
-    stroke-width: 2px;
+    stroke-width: 5px;
   }
   100% {
     stroke-dasharray: 140 540;
     stroke-dashoffset: -256;
-    stroke-width: 2px;
+    stroke-width: 5px;
   }
 }
 
