@@ -1,10 +1,11 @@
 /* eslint-disable linebreak-style */
 import React, { PureComponent } from 'react';
-import MenuItem from './MenuItem';
+import MenuItem from './Components/MenuItem';
 
-import './menu.css';
+import './Style/menu.css';
 
 class MainMenu extends PureComponent {
+
   render() {
     return (
       <div>

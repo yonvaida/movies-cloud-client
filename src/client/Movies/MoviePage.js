@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './Style/App.css';
 
-import ApiConnector from './Connector/ApiConnector'
-import Movies from './Components/Pages/MoviesList/Movies';
-import Video from './Components/Pages/Video/Video';
+import ApiConnector from '../Connector/ApiConnector'
+import Movies from './Pages/MoviesList/Movies';
+import Video from './Pages/Video/Video';
 
-class App extends Component {
+class MoviePage extends Component {
   constructor(props) {
     super(props);
     this.state = { page: "" };
@@ -35,4 +35,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default MoviePage;
