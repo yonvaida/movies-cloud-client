@@ -9,7 +9,6 @@ class MainMenu extends PureComponent {
   render() {
     return (
       <div>
-        <h1>Menu</h1>
         <MenuItem Text="MOVIES" />
         <MenuItem Text="TV SHOWS" />
         <MenuItem Text="MUSIC" />

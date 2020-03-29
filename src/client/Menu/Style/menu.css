@@ -1,75 +1,44 @@
 #menu {
+ position:fixed;
  font-family: 'Trade Winds';
  float: left;
- width: 200px;
+ width: 50px;
  height: 100%;
  border-radius:3px;
+ left: 0px;
+ z-index:999;
 }
 
 .menuItem {
+  background-color:#333333;
   height: 60px;
-	margin: 10px;
+	margin-top: 10px;
   position: relative;
   top: 50px;
-  transform: translateY(-50%);
-  width: 180px;
+  width: 35px;
+  transition: width 0.5s;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
-.shape {
-  fill: transparent;
-  stroke-dasharray: 140 540;
-  stroke-dashoffset: -256;
-  stroke-width: 2px;
-  stroke: #6e6e6e;
-  -webkit-animation: 0.3s drawOut linear forwards;
-  animation: 0.3s drawOut linear forwards;
-}
 
 .text {
-  user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -o-user-select: none;
-  font-family: 'Roboto Condensed';
-	text-shadow: 0px 1px 1px #000;
-	color: #6e6e6e;
-  font-size: 22px;
-  letter-spacing: 8px;
-  line-height: 32px;
+  width:200px;
+  height: 100%;
   position: relative;
-  top: -48px;
+  float:right;
+  top: 35%;
 }
 
-@keyframes draw {
-  0% {
-    stroke-dasharray: 140 540;
-    stroke-dashoffset: -256;
-    stroke-width: 5px;
-  }
-  100% {
-    stroke-dasharray: 170 740;
-    stroke-dashoffset: -240;
-    stroke-width: 5px;
-  }
+
+.menuItem:hover{
+  background: #444444;
+  width: 200px;
 }
 
-@keyframes drawOut {
-  0% {
-    stroke-dasharray: 170 740;
-    stroke-dashoffset: -240;
-    stroke-width: 5px;
-  }
-  100% {
-    stroke-dasharray: 140 540;
-    stroke-dashoffset: -256;
-    stroke-width: 5px;
-  }
-}
-
-.menuItem:hover .shape {
-  -webkit-animation: 0.3s draw linear forwards;
-  animation: 0.3s draw linear forwards;
+.menu-item-icon{
+  float:right;
+  margin-right:10px;
 }
 
 h1 {

@@ -4,16 +4,22 @@ import MovieItem from './MovieItem';
 class Movies extends Component {
   constructor(props) {
     super(props);
-    this.state = { renderingItem: 'Loading movies list'};
+    this.loading = (
+      <div className="lds-ripple">
+        <div />
+        <div />
+      </div>
+    );
+    this.state = { renderingItem: this.loading };
     this.videoPage = this.props.videoPage;
   }
 
   componentWillMount() {
-    console.log(this.getMoviesList());
+    this.getMoviesList();
   }
 
   getMoviesList() {
-    fetch("http://localhost:8080/oneDriveList")
+    fetch("http://192.168.1.165:8080/oneDriveList")
       .then((response) => {
         response.json()
           .then((jsonResp) => {
@@ -33,14 +39,14 @@ class Movies extends Component {
             this.setState({ renderingItem: table });
           });
       })
-      .then((error) => {
+      .catch((error) => {
         console.log(error);
       });
   }
 
   render() {
     return (
-      <div>
+      <div className="row">
         {this.state.renderingItem}
       </div>
     );

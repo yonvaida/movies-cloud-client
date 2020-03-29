@@ -1,7 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MoviePage from './Movies/MoviePage';
-import MainMenu from './Menu/MainMenu';
+import ContentPage from './Content/ContentPage';
+import './Style/App.css';
 
-ReactDOM.render(<MoviePage />, document.getElementById('mainPage'));
-ReactDOM.render(<MainMenu />, document.getElementById('menu'));
+
+ReactDOM.render(<ContentPage />, document.getElementById('content'));

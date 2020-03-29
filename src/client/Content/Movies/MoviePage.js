@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './Style/App.css';
+import './Style/vim.css';
 
-import ApiConnector from '../Connector/ApiConnector'
+import ApiConnector from '../../Connector/ApiConnector'
 import Movies from './Pages/MoviesList/Movies';
 import Video from './Pages/Video/Video';
 
@@ -25,7 +26,8 @@ class MoviePage extends Component {
   render() {
     const backgroundStyle = {
       width: "100%",
-      height: "100%"
+      height: "100vh",
+      color: "white"
     };
     return (
       <div style={backgroundStyle}>

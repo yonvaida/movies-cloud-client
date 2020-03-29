@@ -4,3 +4,7 @@ dist
 *.log
 yarn.lock
 src/server/settings.json
+
+src/server/OpenSub/settings.json
+
+src/server/OneDrive/settings.json

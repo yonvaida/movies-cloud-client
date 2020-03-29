@@ -1,0 +1,146 @@
+.row {
+    margin: 0px;
+}
+
+.movie {
+    height: 250px;
+    width: 180px;
+    margin: 10px;
+    float: left;
+    transition: opacity .2s ease-out;
+    -moz-transition: opacity .2s ease-out;
+    -webkit-transition: opacity .2s ease-out;
+    -o-transition: opacity .2s ease-out;
+}
+
+.movie-item {
+    width: 200px;
+    display: inline-block;
+    margin: 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.movie:hover {
+    opacity: 0.4;
+    transition: opacity .2s ease-out;
+    -moz-transition: opacity .2s ease-out;
+    -webkit-transition: opacity .2s ease-out;
+    -o-transition: opacity .2s ease-out;
+}
+
+.movie_poster {
+    position: relative;
+    width: 100%;
+}
+
+.movie_poster img {
+    width: 100%;
+}
+
+.item-mask {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    bottom: 0px;
+    z-index: 1;
+    -webkit-transition: 0.4s ease;
+    -moz-transition: 0.4s ease;
+    transition: 0.4s ease;
+}
+
+.item-play {
+    position: absolute;
+    border: solid 5px white;
+    display: table-cell;
+    border-radius: 25px;
+    ;
+    top: calc( 50% - 25px);
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+    left: calc( 50% - 25px);
+    opacity: 0;
+    vertical-align: middle;
+    -webkit-transition: 0.4s ease;
+    -moz-transition: 0.4s ease;
+    transition: 0.4s ease;
+}
+
+.item-mask:hover {
+    background-color: rgba(50, 50, 50, 0.7);
+}
+
+.item-play:hover~.item-mask {
+    background-color: rgba(50, 50, 50, 0.7);
+}
+
+.item-play:hover {
+    opacity: 1;
+    border: solid 5px #b3ffff;
+}
+
+.item-play i {
+    margin-top: 10px;
+}
+
+.movie-item-title {
+    width: 100%;
+    text-align: left;
+    position: relative;
+    display: block;
+    margin-top: 10px;
+}
+
+.movie-item-title h3 {
+    margin: 0px;
+    width: 100%;
+    font-size: large;
+}
+
+.movie-category {
+    color: #ffd80e;
+    font-size: small;
+}
+
+#mainPage {
+    border-top: 10px;
+    margin-left: 45px;
+    height: 100%;
+}
+
+.movieTitle {
+    float: left;
+    font-size: 30pt;
+    margin: 10px;
+    font-weight: lighter;
+    width: 98%;
+    text-align: left;
+}
+
+.player {
+    padding-top:20px;
+    width: 500px;
+    margin: auto;
+}
+
+.movieDescription {
+   font-weight: lighter;
+    width: 100%;
+    float: left;
+    margin-bottom: 25px;
+}
+
+.backgroundMask {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    background-color:#1a191f;
+    opacity:0.9;
+    z-index: -1;
+}
+
+.video-react-video {
+    background-size: cover;
+}
