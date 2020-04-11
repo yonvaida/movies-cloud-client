@@ -31,7 +31,7 @@ app.get('/oneDriveList', (req, res) => {
 app.post('/getMovieSubtitle', (req, res) => {
   const subConnector = new OpenSubtitlesConnector(req.body.imdbId);
   subConnector.getSubtitle().then((response) => {
-    res.send(response.ro);
+    res.send(response);
   }).catch((err) => {
     res.send(err);
   });

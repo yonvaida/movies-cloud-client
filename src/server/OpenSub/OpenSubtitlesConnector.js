@@ -13,15 +13,13 @@ class OpenSubtitlesConnector {
       this.openSubApi.login()
         .then(() => {
           this.searchSubtitle().then((sub) => {
-            fetch(sub.ro.vtt)
-              .then(res => res.text())
-              .then((subResp) => {
-                resolve(subResp);
-              }).catch((err) => {
-                console.log(err);
-                reject(err);
-              });
+            const allSubs = [];
+            sub.ro.forEach((element) => {
+              allSubs.push(element.vtt);
+            });
+            resolve(allSubs);
           }).catch((err) => {
+            console.log(err);
             reject(err);
           });
         })
@@ -34,8 +32,9 @@ class OpenSubtitlesConnector {
   searchSubtitle() {
     return new Promise((resolve, reject) => {
       this.openSubApi.search({
-        sublanguageid: 'rum,eng',
+        sublanguageid: 'rum',
         imdbid: this.movieImdbId,
+        limit: 'all',
         gzip: true
       }).then((subtitles) => {
         resolve(subtitles);

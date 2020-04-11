@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 import React from 'react';
 import 'video-react/dist/video-react.css';
-import { Player } from 'video-react';
+import { Player, ControlBar, ClosedCaptionButton } from 'video-react';
 
 
 class Video extends React.PureComponent {
@@ -10,8 +10,8 @@ class Video extends React.PureComponent {
     this.state = { video: 'Loading' };
     this.state = { moviePoster: '' };
     this.getMovieSubtitle = this.getMovieSubtitle.bind(this);
-    this.sub = '';
-    this.subUrl = '';
+    this.player = {};
+    this.subtitle = '';
   }
 
   getMovieSubtitle() {
@@ -19,7 +19,7 @@ class Video extends React.PureComponent {
     const postBody = {
       imdbId: id
     };
-    const url = 'http://192.168.1.165:8080/getMovieSubtitle';
+    const url = 'http://localhost:8080/getMovieSubtitle';
     fetch(url, {
       method: 'POST',
       headers: {
@@ -29,9 +29,17 @@ class Video extends React.PureComponent {
     })
       .then(res => res.text())
       .then((data) => {
-        console.log(data);
-        this.sub = data;
-        this.setState({ video: 'Render' });
+        const subs = JSON.parse(data);
+        const videoPlayer = document.getElementsByTagName('video');
+        let i = 0;
+        subs.forEach((element) => {
+          const track = document.createElement('track');
+          videoPlayer[0].appendChild(track);
+          i += 1;
+          console.log(i);
+          track.label = `Sub ${i}`;
+          track.src = element;
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -51,15 +59,8 @@ class Video extends React.PureComponent {
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover'
     };
-    if (this.state.video !== 'Render') {
-      this.getMovieSubtitle();
-      return (
-        <div>
-          "Loading"
-        </div>
-      );
-    }
-    console.log(this.sub);
+    this.getMovieSubtitle();
+
     return (
       <div>
         <div className="pageBackground" style={backgroundStyle} />
@@ -67,15 +68,17 @@ class Video extends React.PureComponent {
         <div className="container-fluid d-flex">
           <div className="row">
             <div className="col-sm-6 player">
-              <Player>
+              <Player
+                crossOrigin="true"
+                ref={(player) => { this.player = player; }}
+              >
                 <source
                   src={movieUrl}
                   type="video/mp4"
                 />
-                <track
-                  src={this.sub}
-                  default
-                />
+                <ControlBar autoHide={false}>
+                  <ClosedCaptionButton order={7} />
+                </ControlBar>
               </Player>
             </div>
             <div className="col-sm-6">
