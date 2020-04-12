@@ -7,8 +7,8 @@ class MovieItem extends Component {
     super(props);
     this.state = { moviePoster: '' };
     this.state = { movieInfo: '' };
-    this.state = { movieTitle: ''};
-    this.state = { movieGenere: ''};
+    this.state = { movieTitle: '' };
+    this.state = { movieGenres: '' };
     this.state = { Loading: '' };
     this.movieName = this.props.name;
     this.getMovieFullInfo = this.getMovieFullInfo.bind(this);
@@ -38,6 +38,12 @@ class MovieItem extends Component {
         this.setState({ moviePoster: <img alt="" src={imagePath} /> });
         this.setState({ Loading: false });
         this.setState({ movieTitle: JSON.parse(res).original_title });
+        let genres = '';
+        JSON.parse(this.state.movieInfo)
+          .genres.forEach((element) => {
+            genres += `${element.name}, `;
+          });
+        this.setState({ movieGenres: genres.substring(0, genres.length - 2) });
       });
   }
 
@@ -57,22 +63,20 @@ class MovieItem extends Component {
         className="movie-item"
         tabIndex={0}
       >
-        <div className="movie_poster">
+        <div 
+          className="movie_poster"
+          role="button"
+          onClick={() => openVideo(this.props.url, this.state.movieInfo)}
+          onKeyPress={this.handleKeyPress}
+          tabIndex={-1}
+        >
           {this.state.moviePoster}
           <div className="item-rated" />
-          <div className="item-play" 
-            role="button"
-            onClick={() => openVideo(this.props.url, this.state.movieInfo)}
-            onKeyPress={this.handleKeyPress}
-            tabIndex={-1}
-          >
-            <i className="fa fa-play"></i>
-          </div>
           <div className="item-mask" />
         </div>
         <div className="movie-item-title">
           <h3><a>{this.state.movieTitle}</a></h3>
-          <span className="movie-category">Comedy</span>
+          <span className="movie-category">{this.state.movieGenres}</span>
         </div>
       </div>
     );

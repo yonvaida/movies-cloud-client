@@ -69,16 +69,7 @@
 }
 
 .item-mask:hover {
-    background-color: rgba(50, 50, 50, 0.7);
-}
-
-.item-play:hover~.item-mask {
-    background-color: rgba(50, 50, 50, 0.7);
-}
-
-.item-play:hover {
-    opacity: 1;
-    border: solid 5px #b3ffff;
+    background-color: rgba(100, 161, 157, 0.3);
 }
 
 .item-play i {
@@ -144,3 +135,10 @@
 .video-react-video {
     background-size: cover;
 }
+
+.movie_poster:focus, .movie_poster:active,
+.video-react:focus, .video-react:active,
+.video-react-video:focus, .video-react-video:active {
+    outline: none !important;
+    box-shadow: none;
+ }
