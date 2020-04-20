@@ -1,0 +1,62 @@
+video {
+  width:100%;
+}
+
+#video-controls {
+  position:relative;
+  background-color:rgba(33, 37, 41,0.4);
+  margin-top:-57px;
+  display:flex;
+  color:#337ab7;
+  font-family: "FontAwesome";
+  font-size: 2em;
+}
+
+#playpause,
+#stop,
+#fs {
+  background-color: rgba(0,0,0,0);
+  border:none;
+}
+
+#playpause:focus,
+#fs:focus,
+#stop:focus {
+  outline: none;
+  color: #337ab7;
+}
+
+#playpause::after {
+  color: #337ab7;
+  content: "\f04b";
+}
+
+#stop:after {
+  color: #337ab7;
+  content: "\f04d";
+}
+
+#fs:after {
+  color: #337ab7;
+  content: "\f065";
+}
+
+progress {
+  margin-left:6px;
+  margin-right:6px;
+  margin-top:8px;
+  background-color:rgba(46, 61, 75,0.7);
+  height: 32px;
+  position: relative;
+  width: 100%;
+}
+progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+progress::-moz-progress-bar {
+  background-color: transparent;
+}
+progress::-webkit-progress-value {
+  background-color: #337ab7;
+  width:10px;
+}

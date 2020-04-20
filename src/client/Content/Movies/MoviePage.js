@@ -4,7 +4,7 @@ import './Style/vim.css';
 
 import ApiConnector from '../../Connector/ApiConnector'
 import Movies from './Pages/MoviesList/Movies';
-import Video from './Pages/Video/Video';
+import VideoPage from './Pages/Video/VideoPage';
 
 class MoviePage extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class MoviePage extends Component {
   }
 
   videoPage(url, info) {
-    this.setState({ page: <Video url={url} info={info} /> });
+    this.setState({ page: <VideoPage url={url} info={info} /> });
   }
 
   render() {

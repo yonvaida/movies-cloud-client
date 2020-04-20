@@ -1,10 +1,8 @@
 /* eslint-disable linebreak-style */
 import React from 'react';
-import 'video-react/dist/video-react.css';
-import { Player, ControlBar, ClosedCaptionButton } from 'video-react';
+import VideoPlayer from './VideoPlayer'
 
-
-class Video extends React.PureComponent {
+class VideoPage extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = { video: 'Loading' };
@@ -68,18 +66,9 @@ class Video extends React.PureComponent {
         <div className="container-fluid d-flex">
           <div className="row">
             <div className="col-sm-6 player">
-              <Player
-                crossOrigin="true"
-                ref={(player) => { this.player = player; }}
-              >
-                <source
-                  src={movieUrl}
-                  type="video/mp4"
-                />
-                <ControlBar autoHide={false}>
-                  <ClosedCaptionButton order={7} />
-                </ControlBar>
-              </Player>
+              <VideoPlayer
+                src={movieUrl}
+              />
             </div>
             <div className="col-sm-6">
               <div className="movieTitle">{this.props.url.title}</div>
@@ -92,4 +81,4 @@ class Video extends React.PureComponent {
   }
 }
 
-export default Video;
+export default VideoPage;
