@@ -10,7 +10,7 @@ class MoviePage extends Component {
   constructor(props) {
     super(props);
     this.state = { page: "" };
-    this.state = { loading:true};
+    this.state = { loading: true};
     this.connector = new ApiConnector;
     this.videoPage = this.videoPage.bind(this);
   }

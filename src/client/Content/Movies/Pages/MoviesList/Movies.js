@@ -19,7 +19,7 @@ class Movies extends Component {
   }
 
   getMoviesList() {
-    fetch("http://192.168.1.165:8080/oneDriveList")
+    fetch("http://127.0.0.1:8080/oneDriveList")
       .then((response) => {
         response.json()
           .then((jsonResp) => {

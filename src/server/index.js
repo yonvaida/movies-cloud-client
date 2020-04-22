@@ -15,17 +15,18 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/oneDriveList', (req, res) => {
-  if (Date.now() > connector.tokenExpire) {
-    connector.getToken().then(() => {
-      connector.getMoviesList().then((successMessage) => {
-        res.send(JSON.stringify(successMessage));
-      });
+  connector.getMoviesList().then((successMessage) => {
+    res.send(JSON.stringify(successMessage));
+  });
+});
+
+app.post('/oneDriveShareLink', (req, res) => {
+  connector.getMovieSharedLink(req.body.id)
+    .then((response) => {
+      res.send(response);
+    }).catch((err) => {
+      res.send(err);
     });
-  } else {
-    connector.getMoviesList().then((successMessage) => {
-      res.send(JSON.stringify(successMessage));
-    });
-  }
 });
 
 app.post('/getMovieSubtitle', (req, res) => {
