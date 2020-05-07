@@ -61,13 +61,14 @@ class MovieItem extends Component {
     return (
       <div
         className="movie-item"
-        tabIndex={0}
+        role="button"
+        tabIndex={this.props.id}
+        onClick={() => openVideo(this.props.url, this.state.movieInfo)}
+        onKeyPress={this.handleKeyPress}
       >
         <div 
           className="movie_poster"
           role="button"
-          onClick={() => openVideo(this.props.url, this.state.movieInfo)}
-          onKeyPress={this.handleKeyPress}
           tabIndex={-1}
         >
           {this.state.moviePoster}

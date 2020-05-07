@@ -24,13 +24,8 @@ class MoviePage extends Component {
   }
 
   render() {
-    const backgroundStyle = {
-      width: "100%",
-      height: "100vh",
-      color: "white"
-    };
     return (
-      <div style={backgroundStyle}>
+      <div id="container" >
         {this.state.page}
       </div>
     );

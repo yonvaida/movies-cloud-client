@@ -19,9 +19,11 @@
     margin: 10px;
     font-family: 'Source Sans Pro', sans-serif;
     -webkit-font-smoothing: antialiased;
+    animation: fadeIn ease 20s;
 }
 
-.movie:hover {
+.movie:hover,
+.focused {
     opacity: 0.4;
     transition: opacity .2s ease-out;
     -moz-transition: opacity .2s ease-out;

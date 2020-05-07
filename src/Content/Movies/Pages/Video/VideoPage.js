@@ -3,6 +3,8 @@ import React from 'react';
 import 'video-react/dist/video-react.css';
 import { Player, ControlBar, ClosedCaptionButton } from 'video-react';
 
+const settings = require('../../../../settings.json');
+
 class VideoPage extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -11,6 +13,7 @@ class VideoPage extends React.PureComponent {
     this.state = { source: "" };
     this.getMovieSubtitle = this.getMovieSubtitle.bind(this);
     this.loadVideo = this.loadVideo.bind(this);
+    this.videoLoaded = false;
     this.player = {};
     this.subtitle = '';
   }
@@ -31,8 +34,8 @@ class VideoPage extends React.PureComponent {
     };
     const hidden = {
       display: 'none'
-    }
-    const url = 'http://localhost:8080/oneDriveShareLink';
+    };
+    const url = `${settings.apiServer}/oneDriveShareLink`;
     fetch(url, {
       method: 'POST',
       headers: {
@@ -42,7 +45,15 @@ class VideoPage extends React.PureComponent {
     })
       .then(res => res.text())
       .then((response) => {
-        this.setState({ iframe: (<iframe style={hidden} src={response} onLoad={this.loadVideo.bind(this)} />) });
+        this.setState({
+          iframe: (<iframe 
+            title="helper" 
+            style={hidden} 
+            src={response} 
+            onLoad={this.loadVideo.bind(this)} 
+          />)
+        });
+        setTimeout(() => { this.loadVideo(); }, 10000);
       });
   }
 
@@ -51,7 +62,7 @@ class VideoPage extends React.PureComponent {
     const postBody = {
       imdbId: id
     };
-    const url = 'http://127.0.0.1:8080/getMovieSubtitle';
+    const url = `${settings.apiServer}/getMovieSubtitle`;
     fetch(url, {
       method: 'POST',
       headers: {
@@ -79,6 +90,10 @@ class VideoPage extends React.PureComponent {
   }
 
   loadVideo() {
+    if (this.videoLoaded) {
+      return;
+    }
+    this.videoLoaded = true;
     this.getMovieSubtitle();
     const movieUrl = this.props.url.webUrl;
     const movieInfo = JSON.parse(this.props.info);

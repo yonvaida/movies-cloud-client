@@ -4,13 +4,11 @@ import '../../Style/VideoPlayer.css';
 import 'video-react/dist/video-react.css';
 import { Player, ControlBar, ClosedCaptionButton } from 'video-react';
 
-
-
 class VideoPlayer extends React.PureComponent {
   constructor(props) {
     super(props);
     this.src = props.src;
-    this.id = props.id;
+    this.id = props.onedrive_id;
     this.playPauseVideo = this.playPauseVideo.bind(this);
     this.updateProgress = this.updateProgress.bind(this);
     this.changeProgress = this.changeProgress.bind(this);
@@ -26,6 +24,7 @@ class VideoPlayer extends React.PureComponent {
     const postBody = {
       id: this.id
     };
+    console.log(this.id);
     const url = 'http://localhost:8080/oneDriveShareLink';
     fetch(url, {
       method: 'POST',

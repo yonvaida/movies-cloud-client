@@ -2,10 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const outputDirectory = 'dist';
+const outputDirectory = '../movies-cloud-server/dist/client';
 
 module.exports = {
-  entry: ['babel-polyfill', './src/client/index.js'],
+  entry: ['babel-polyfill', './src/index.js'],
   output: {
     path: path.join(__dirname, outputDirectory),
     filename: 'bundle.js'
@@ -33,10 +33,7 @@ module.exports = {
   },
   devServer: {
     port: 3000,
-    open: true,
-    proxy: {
-      '/api': 'http://0.0.0.0:8080'
-    }
+    open: true
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
